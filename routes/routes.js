@@ -1,21 +1,14 @@
 const express = require('express')
+const controller = require('../controllers/index')
 const router = express.Router()
 
-router.get('/', (req, res) => {
-    res.render('index')
-})
+router.get('/', controller.getHomePage)
 
-router.get('/signup', (req, res) => {
-    res.render('signup')
-})
+router.get('/signup', controller.signUp)
 
-router.get('/members', (req, res) => {
-    res.render('members')
-})
+router.get('/members', controller.showMembersPage)
 
-router.get('/admin', (req, res) => {
-    res.render('admin')
-})
+router.get('/admin', controller.admin)
 
 router.use((req, res, next) => {
     res.status(404).render('404');
