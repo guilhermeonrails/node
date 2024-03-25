@@ -57,7 +57,7 @@ h2 {
     margin-bottom: 0.625rem; /* Deixei o valor fixo, pois é pequeno */
 }
 
-.login-form {
+.login-form, .signup {
     display: flex;
     justify-content: center;
     flex-direction: column;

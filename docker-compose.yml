@@ -1,14 +1,10 @@
 version: '3.8'
 services:
-  mongo: 
-    image: mongo:latest
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: mongadmin
-      MONGO_INITDB_ROOT_PASSWORD: LikeAndSubscribe
+  mongo:
+    container_name: mongo
+    image: mongo
     ports:
-      - 27017:27017
-    volumes:
-      - mongodata:/data/db
+      - '27017:27017'
 volumes:
   mongodata:
     driver: local
