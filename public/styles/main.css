@@ -208,16 +208,18 @@ button:hover {
 
 .logout-btn-container {
     display: flex;
-    justify-content: left;
-    margin-top: 5%;
+    justify-content: right;
+    align-items: center;
 }
 
 .logout-btn {
+    text-decoration: none;
     background-color: var(--offwhite);
-    border-radius: 0.5rem;
+    color: var(--background-color);
+    border-radius: 0.3rem;
     width: 6.5rem;
-    height: 3.5rem;
-    font-weight: 600;
+    height: 1.6rem;
+    font-weight: 400; 
     font-size: 1rem;
     line-height: 1.6rem;
     text-align: center;
