@@ -12,3 +12,5 @@ app.use(routes);
 mongoConnect(() => {
     app.listen(port)
 })
+
+// https://github.com/WebDevSimplified/Nodejs-Passport-Login/tree/master

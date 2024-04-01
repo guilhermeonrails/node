@@ -41,9 +41,13 @@ main {
     width: 40.03rem;
 }
 
+.error-message {
+    color: var(--verde-destaque);
+}
+
 h1 {
     font-size: 2rem;
-    margin-bottom: 1.25rem; /* Deixei o valor fixo, pois é pequeno */
+    margin-bottom: 1.25rem; 
     font-weight: 600;
     color: var(--offwhite);
     line-height: 2.93rem;
@@ -54,7 +58,7 @@ h2 {
     font-weight: 400;
     line-height: 2rem;
     color: var(--offwhite);
-    margin-bottom: 0.625rem; /* Deixei o valor fixo, pois é pequeno */
+    margin-bottom: 0.625rem; 
 }
 
 .login-form, .signup {
@@ -73,12 +77,12 @@ label {
 
 input {
     width: 100%;
-    margin-bottom: 1rem; /* Deixei o valor fixo, pois é pequeno */
+    margin-bottom: 1rem; 
     box-sizing: border-box;
-    border: 0.0625rem solid #ccc; /* Convertido para rem */
+    border: 0.0625rem solid #ccc;
     background-color: var(--cinza-medio);
     font-size: 1rem;
-    border-radius: 0.25rem; /* Convertido para rem */
+    border-radius: 0.25rem; 
     padding: 0.7rem;
 }
 
@@ -96,7 +100,7 @@ input {
     font-size: 1rem;
     line-height: 1.6rem;
     text-align: center;
-    margin-bottom: 1rem; /* Deixei o valor fixo, pois é pequeno */
+    margin-bottom: 1rem;
 }
 
 button:hover {
@@ -107,7 +111,7 @@ button:hover {
 .alternate-accounts {
     width: 100%;
     text-align: center;
-    border-bottom: 0.0625rem solid var(--offwhite); /* Convertido para rem */
+    border-bottom: 0.0625rem solid var(--offwhite); 
     line-height: 0.1em;
     margin-top: 1rem;
     color: var(--offwhite);
@@ -200,7 +204,24 @@ button:hover {
 .page-not-found a:hover{
     color: var(--verde-pastel);
     text-decoration: underline;
+}
 
+.logout-btn-container {
+    display: flex;
+    justify-content: left;
+    margin-top: 5%;
+}
+
+.logout-btn {
+    background-color: var(--offwhite);
+    border-radius: 0.5rem;
+    width: 6.5rem;
+    height: 3.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.6rem;
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 @media (max-width: 1200px) {

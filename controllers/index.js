@@ -1,7 +1,22 @@
 const User = require('../models/user')
 
-exports.getHomePage = (req, res, next) => {
+exports.showIndex = (req, res, next) => {
     res.render('index')
+}
+
+exports.login = async (req, res, next) => {
+    const {email, password} = req.body
+    try {
+        const user = await User.findUserBy(email, password);
+        if (user) {
+            res.redirect('/members');
+        } else {
+            res.render('index');
+        }
+    } catch (error) {
+        console.error(error);
+        res.render('index');
+    }
 }
 
 exports.showPageSignUp = (req, res, next) => {
