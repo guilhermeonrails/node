@@ -28,6 +28,10 @@
             <label for="password">Senha</label>
             <input type="password" id="password" name="password" required>
 
+            <% if (typeof error !== 'undefined') { %>
+                <p class="error-message"><%= error %></p>
+            <% } %>
+
             <div class="login-btn-container">
                 <button type="submit" class="login-btn">Criar <i class="arrow fas fa-arrow-right"></i></button>
             </div>

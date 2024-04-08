@@ -226,6 +226,12 @@ button:hover {
     margin-bottom: 1rem;
 }
 
+.error-message {
+    color: red;
+    margin-top: -.7rem;
+    margin-bottom: .5rem;
+}
+
 @media (max-width: 1200px) {
     body {
         flex-direction: column;

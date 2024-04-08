@@ -24,6 +24,10 @@
             <label for="password">Senha</label>
             <input type="password" id="password" name="password" required>
 
+            <% if (typeof error !== 'undefined') { %>
+                <p class="error-message"><%= error %></p>
+            <% } %>
+
             <div class="login-btn-container">
                 <button type="submit" class="login-btn">Login <i class="arrow fas fa-arrow-right"></i></button>
             </div>
@@ -39,7 +43,7 @@
             </div>
 
             <div class="social-media-details">
-                <a href="#">
+                <a href="/auth/github">
                     <img src="/assets/gitHub.svg" alt="Login com GitHub" class="social-media-icon">
                     <p>GitHub</p>
                 </a>

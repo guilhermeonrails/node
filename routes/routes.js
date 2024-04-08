@@ -1,15 +1,22 @@
 const express = require('express');
+const router = express.Router();
 const bodyParser = require('body-parser');
 const controller = require('../controllers/index');
 const session = require('express-session');
-const router = express.Router();
+const sessionStore = require('../util/sessionStorage')
+const passport = require('passport');
 
 router.use(bodyParser.urlencoded({ extended: true }));
+
 router.use(session({
     secret: 'abc123',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: sessionStore
 }))
+
+router.use(passport.initialize());
+router.use(passport.session());
 
 router.get('/', controller.showIndex);
 router.post('/', controller.login);
@@ -18,6 +25,8 @@ router.post('/signup', controller.signUp);
 router.get('/members', controller.checkAuth, controller.showMembersPage);
 router.get('/logout', controller.logout)
 router.get('/admin', controller.admin);
+router.get('/auth/github', controller.githubAuth)
+router.get('/auth/github/callback', controller.githubAuthCallback);
 router.use(controller.get404Page);
 
 module.exports = router;
