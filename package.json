@@ -21,7 +21,8 @@
     "mongodb": "^6.5.0",
     "passport": "^0.7.0",
     "passport-github2": "^0.1.12",
-    "passport-github22": "^0.1.12"
+    "passport-github22": "^0.1.12",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"

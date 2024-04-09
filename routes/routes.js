@@ -17,16 +17,24 @@ router.use(session({
 
 router.use(passport.initialize());
 router.use(passport.session());
+require('../passaport-config');
 
 router.get('/', controller.showIndex);
-router.post('/', controller.login);
+router.post('/',
+    passport.authenticate('local', { failureRedirect: '/' }),
+    function (req, res) {
+        res.redirect('/members');
+    });
 router.get('/signup', controller.showPageSignUp);
 router.post('/signup', controller.signUp);
 router.get('/members', controller.checkAuth, controller.showMembersPage);
 router.get('/logout', controller.logout)
 router.get('/admin', controller.admin);
-router.get('/auth/github', controller.githubAuth)
-router.get('/auth/github/callback', controller.githubAuthCallback);
+router.get('/auth/github', passport.authenticate('github', { scope: ['user:email'] }))
+router.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/' }),
+    function (req, res) {
+        res.redirect('/members');
+    });
 router.use(controller.get404Page);
 
 module.exports = router;
