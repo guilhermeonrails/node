@@ -9,12 +9,10 @@ exports.showPageSignUp = (req, res, next) => {
 }
 
 exports.signUp = async(req, res, next) => {
-    const username = req.body.username
-    const email = req.body.email
-    const password = req.body.password
-    const emailDisponivel = await User.findOne(username, password);
-    if (emailDisponivel) {
-        res.render('signUp', { error: 'O e-mail indisponível.' });
+    const { email, username, password } = req.body;
+    const emailNomeDisponivel = await User.findOne(email, username);
+    if (emailNomeDisponivel) {
+        res.render('signUp', { error: 'O e-mail ou nome de usuário estão indisponíveis.' });
     } else {
         const user = new User(username, email, password)
         user.save()
@@ -48,11 +46,7 @@ exports.checkAuth = (req, res, next) => {
     return res.redirect('/')
 }
 
-exports.logout = (req, res, next) => {
-    req.session.destroy(err => {
-        if (err) {
-            console.log(err)
-        }
-        res.redirect('/')
-    })
+exports.logout = async (req, res, next) => {
+    req.session.destroy()
+    res.redirect('/')
 }
