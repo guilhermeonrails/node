@@ -4,7 +4,6 @@ const GitHubStrategy = require('passport-github2').Strategy;
 const User = require('./models/user')
 const bcrypt = require('bcryptjs')
 
-
 require('dotenv').config();
 
 passport.serializeUser(function (user, done) {
@@ -23,10 +22,10 @@ passport.use(new LocalStrategy(
   async (email, password, done) => {
     const user = await User.findOne(email);
     if (!user) {
-      return done(null, false, {error:'Email ou password incrorretos!'})
+      return done(null, false)
     }
     if (!bcrypt.compareSync(password, user.password)) {
-      return done(null, false, {error:'Email ou password incrorretos!'})
+      return done(null, false)
     }
     return done(null, user);
   }

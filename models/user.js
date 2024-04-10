@@ -15,10 +15,10 @@ class User {
         return db.collection('users').insertOne(this)
     }
 
-    static async findOne(email, username) {
+    static async findOne(email) {
         const db = getDb();
-        const user = await db.collection('users').findOne({ email: email, username: username })
-        return user ? true : false
+        const user = await db.collection('users').findOne({ email: email })
+        return user
     }
 }
 

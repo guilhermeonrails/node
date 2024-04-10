@@ -10,11 +10,11 @@ exports.showPageSignUp = (req, res, next) => {
 
 exports.signUp = async(req, res, next) => {
     const { email, username, password } = req.body;
-    const emailNomeDisponivel = await User.findOne(email, username);
-    if (emailNomeDisponivel) {
+    const user = await User.findOne(email);
+    if (user) {
         res.render('signUp', { error: 'O e-mail ou nome de usuário estão indisponíveis.' });
     } else {
-        const user = new User(username, email, password)
+        user = new User(username, email, password)
         user.save()
             .then(result => {
                 res.redirect('/')
